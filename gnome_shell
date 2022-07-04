@@ -1,0 +1,9 @@
+# 1- go to browser and to this link: https://extensions.gnome.org/
+# 2- add extensino 
+
+# 3- open termainal and run this command
+sudo apt-get install chrome-gnome-shell
+
+# 4- restart your pc 
+
+# 4- open chrome and enter the previous link and it's all done
