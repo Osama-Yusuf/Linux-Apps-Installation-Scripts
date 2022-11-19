@@ -40,12 +40,6 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/fdm.sh)
 ```
 
-### VLC media player
-
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/VLC.sh)
-```
-
 ### Visual Studio Code
 
 ```
