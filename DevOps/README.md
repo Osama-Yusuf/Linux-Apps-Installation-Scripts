@@ -107,10 +107,10 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/terraform.sh)
 ```
 
-### clean none
+### clean none docker images & containers
 
 ```
-    source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/clean_none.sh)
+    source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/clean_docker.sh)
 ```
 
 ### Fav Bash Aliases

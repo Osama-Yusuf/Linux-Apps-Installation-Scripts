@@ -27,6 +27,27 @@ elif [ $1 == '-l' ] || [ $1 == '--last' ]; then
     echo "Deleting last image created"
     last=$(docker images | head -n 2 | tail -n 1 | awk '{print $3}')
     docker rmi -f $last
+    # check if last image id deleted
+    if [ $? -eq 0 ]; then
+        echo "Last image deleted"
+    else
+        echo
+        echo "Last image not deleted"
+        echo
+        read -p "Do you want to stop and delete the container? [y/n] " ans
+        if [ $ans == 'y' ]; then
+            docker ps
+            echo
+            read -p "Enter container ID: " cont_id
+            docker stop $cont_id
+            docker rm $cont_id
+            docker rmi -f $last
+            echo
+            echo "Last image deleted"
+        else
+            echo "Last image not deleted"
+        fi
+    fi
 
 elif [ $1 == '-i' ] || [ $1 == '--image' ]; then
     echo
