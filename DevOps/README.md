@@ -71,12 +71,6 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 ### ------------------------------
 
-### Kubernetes Cluster Initailizer
-
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/k8s_cluster_init.sh)
-```
-
 ### Kubernetes CLI auto-completion
 
 ```
