@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# remove all none images and none containers
+# Remove all none images & none containers
+# Usage: ./clean_none.sh [OPTION]
+#   -l, --last      remove last image created
+#   -i, --image     remove specific image by id
+#   -e, --exited    remove all exited containers
+#   -c, --container remove specific container by id
+#   -h, --help      display this help and exit
+
 images=$(docker images | grep '^<none>' | awk '{print $3}')
 conts=$(docker ps -a | grep '^<none>' | awk '{print $1}')
 
@@ -16,14 +23,15 @@ else
     echo "No none containers"
 fi
 
-# check if there's argument
+# --------------------------------[ARGS]-------------------------------- #
+
 if [ $# -eq 0 ]; then
     echo
     # echo "No argument supplied"
     exit 1
 
 elif [ $1 == '-l' ] || [ $1 == '--last' ]; then
-    # ceck if there's any images
+    # Cecking if there's any images exists
     if [[ "$(docker images -q)" == "" ]]; then
         echo
         echo "No images to delete"
@@ -32,7 +40,7 @@ elif [ $1 == '-l' ] || [ $1 == '--last' ]; then
         echo "Deleting last image created"
         last=$(docker images | head -n 2 | tail -n 1 | awk '{print $3}')
         docker rmi -f $last
-        # check if last image id deleted
+        # Checking if the last image is deleted or not
         if [ $? -eq 0 ]; then
             echo
             echo "Last image deleted"
