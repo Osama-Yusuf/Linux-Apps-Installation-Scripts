@@ -1,5 +1,14 @@
 # Linux Apps Installation Scripts
 
+## Tools
+
+- [**AnyDesk**](#anydesk)
+- [**Custom App Installer**](#custom-app-installer)
+- [**CloudFlare**](#cloudflare)
+- [**Free Download Manager**](#free-download-manager)
+- [**Visual Studio Code**](#visual-studio-code)
+- [**VLC media player**](#vlc-media-player)
+
 ## You can execute the script directly without downloading it:
 
 ```

@@ -1,4 +1,17 @@
-# DevOps Apps Installation Scripts
+# DevOps Tools Installation Scripts
+
+## Tools
+
+- [**Docker**](#docker-installation)
+- [**GitLab**](#gitlab-installation)
+- [**Helm**](#helm-installation)
+- [**Jenkins**](#jenkins-installation)
+- [**Minikube**](#minikube)
+- [**OpenShift**](#openshift)
+- [**Rancher**](#rancher)
+- [**Ansible**](#ansible)
+- [**Terraform**](#terraform)
+- [**AWS CLI V2**](#aws-cli-v2)
 
 ## You can execute the script directly without downloading it:
 
@@ -13,21 +26,20 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 ```
 
 ## The following links will execute scripts without downloading them:
-
-
-### Docker
+---
+## Docker Installation
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/docker.sh)
 ```
 
-### GitLab
+## GitLab Installation
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/gitlab_install.sh)
 ```
 
-### Helm
+## Helm Installation
 (1) From the official "get_helm.sh" script
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/helm.sh)
@@ -41,7 +53,7 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 sudo snap install helm --classic
 ```
 
-### Jenkins
+## Jenkins Installation
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/jenkins.sh)
@@ -71,52 +83,35 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 
 ### ------------------------------
 
-### Kubernetes CLI auto-completion
 
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/k8s_autocompelete.sh)
-```
-
-### Minikube
+## Minikube
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/minikube.sh)
 ```
 
-### OpenShift
+## OpenShift
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/openshift.sh)
 ```
 
-### Rancher
+## Rancher
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/rancher.sh)
 ```
 
-### Ansible
+## Ansible
 
 ```
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-20-04
 ```
 
-### Terraform
+## Terraform
 
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/terraform.sh)
-```
-
-### clean none docker images & containers
-
-```
-    source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/clean_docker.sh)
-```
-
-### Fav Bash Aliases
-
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/alias.sh)
 ```
 
 # AWS CLI v2
