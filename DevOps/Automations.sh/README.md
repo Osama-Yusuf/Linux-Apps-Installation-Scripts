@@ -1,4 +1,12 @@
-# Bash Scripts for easier use of the command line
+# Bash scripts to automate iterative tasks  
+
+## Scripts
+
+- [**Docker Images and Containers Cleaner**](#docker-images-and-containers-cleaner)
+- [**Kubernetes CLI auto-completion**](#kubernetes-cli-auto-completion)
+- [**Fav Bash Aliases**](#fav-bash-aliases)
+- [**MyIP**](#myip)
+- [**WIfi Passwords**](#wifi-passwords)
 
 ## You can execute the script directly without downloading it:
 
@@ -15,7 +23,7 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 ## The following links will execute scripts without downloading them:
 ----
 
-## Docker Images & Containers Cleaner
+## Docker Images and Containers Cleaner
 Removes all none images & none containers and can be extended to do more with args.
 
 ### Install
