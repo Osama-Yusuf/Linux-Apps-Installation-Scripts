@@ -24,7 +24,7 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 ----
 
 - ## Docker Images and Containers Cleaner
-    Removes all none images & none containers and can be extended to do more with args.
+  Removes all none images & none containers and can be extended to do more with args.
 
   ### Install
   ```
@@ -68,14 +68,15 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 
 - ## Pusher
     This will create an script-app called 'psh' and move it to '/usr/local/bin' that will add all files, commit with the message you passed as an argument and push to the main branch.
+  ### Install
   ```bash
   echo 'git add . && git commit -m "$1" && git push origin main' | sudo tee -a /usr/local/bin/psh && sudo chmod +x /usr/local/bin/psh && clear
   ```
-- ### Usage
+  ### Usage
   ```bash
   psh "commit message"
   ```
-- ### To Uninstall
+  ### To Uninstall
   ```bash
   sudo rm /usr/local/bin/psh
   ```
