@@ -62,7 +62,7 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 ### You can run jenkins as a docker container.
 
 ```
-docker run -d --name jenkins -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+docker run -d --name jenkins -p 8080:8080 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
 ```
 
 #### This will automatically create a 'jenkins_home' docker volume on the host machine. Docker volumes retain their content even when the container is stopped, started, or deleted.

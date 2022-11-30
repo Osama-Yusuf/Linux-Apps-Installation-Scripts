@@ -57,7 +57,7 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 ## MyIP
 
 ```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/myip.sh)
+hostname -I | awk '{print $1}'
 ```
 
 ## WIfi Passwords

@@ -30,13 +30,6 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/anydesk.sh)
 ```
 
-### Custom App Installer
-
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/app_installer.sh)
-```
-
-
 ### CloudFlare
 
 ```

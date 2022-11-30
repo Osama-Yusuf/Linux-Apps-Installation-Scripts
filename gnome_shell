@@ -1,9 +1,15 @@
 # 1- go to browser and to this link: https://extensions.gnome.org/
-# 2- add extensino 
+# 2- add extension 
+
+if [ -f /etc/debian_version ]; then
+    echo "Distro is Ubuntu or Debian"
+    PM="apt"
+elif [ -f /etc/redhat-release ]; then
+    echo "Distro is CentOS or RHEL"
+    PM="yum"
+fi
 
 # 3- open termainal and run this command
-sudo apt-get install chrome-gnome-shell
-
-# 4- restart your pc 
+sudo $PM install chrome-gnome-shell
 
 # 4- open chrome and enter the previous link and it's all done
