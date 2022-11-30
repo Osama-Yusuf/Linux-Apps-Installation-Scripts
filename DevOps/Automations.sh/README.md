@@ -23,47 +23,59 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 ## The following links will execute scripts without downloading them:
 ----
 
-## Docker Images and Containers Cleaner
-Removes all none images & none containers and can be extended to do more with args.
+- ## Docker Images and Containers Cleaner
+    Removes all none images & none containers and can be extended to do more with args.
 
-### Install
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/clean_docker.sh)
-```
+  ### Install
+  ```
+  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/clean_docker.sh)
+  ```
 
-### Usage
-```
-Usage: ./clean_none.sh [OPTION]
-  -l, --last      remove last image created
-  -i, --image     remove specific image by id
-  -e, --exited    remove all exited containers
-  -c, --container remove specific container by id
-  -h, --help      display this help and exit
-```
+  ### Usage
+  ```
+  Usage: ./clean_none.sh [OPTION]
+    -l, --last      remove last image created
+    -i, --image     remove specific image by id
+    -e, --exited    remove all exited containers
+    -c, --container remove specific container by id
+    -h, --help      display this help and exit
+  ```
 
-## Kubernetes CLI auto-completion
+- ## Kubernetes CLI auto-completion
 
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/k8s_autocompelete.sh)
-```
+  ```
+  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/k8s_autocompelete.sh)
+  ```
 
-## Fav Bash Aliases
-Adds more aliases (ls -alf=ll, clear=c, python3=py, kubectl=kl, myip) to the ~/.bashrc file
+- ## Fav Bash Aliases
+    Adds more aliases (ls -alf=ll, clear=c, python3=py, kubectl=kl, myip) to the ~/.bashrc file
 
-```
-source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/alias.sh)
-```
+  ```
+  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/alias.sh)
+  ```
 
-## MyIP
+- ## MyIP
 
-```
-hostname -I | awk '{print $1}'
-```
+  ```
+  hostname -I | awk '{print $1}'
+  ```
 
-## WIfi Passwords
+- ## WIfi Passwords
 
-```
-    source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/wifi_pass.sh)
-```
+  ```
+  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/wifi_pass.sh)
+  ```
 
-
+- ## Pusher
+    This will create an script-app called 'psh' and move it to '/usr/local/bin' that will add all files, commit with the message you passed as an argument and push to the main branch.
+  ```bash
+  echo 'git add . && git commit -m "$1" && git push origin main' | sudo tee -a /usr/local/bin/psh && sudo chmod +x /usr/local/bin/psh && clear
+  ```
+- ### Usage
+  ```bash
+  psh "commit message"
+  ```
+- ### To Uninstall
+  ```bash
+  sudo rm /usr/local/bin/psh
+  ```
