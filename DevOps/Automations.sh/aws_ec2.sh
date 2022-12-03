@@ -26,7 +26,11 @@ fi
 
 # check if aws cli is installed
 if ! [ -x "$(command -v aws)" ]; then
-	echo "Error: aws cli is not installed." >&2
+	echo "Error: aws cli is not installed." >&2 && echo
+	echo """To install aws cli do the following:
+	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+	sudo ./aws/install && rm -rf aws awscliv2.zip
+	"""
 	exit 1
 fi
 
