@@ -56,55 +56,56 @@ fi
 # ---------------------------------------------------------------------------- #
 
 # ------------- Now lets check if there is any browser installed ------------- #
-UsBr=$1
-check_browsers(){
-    browsers=("google-chrome" "chrome" "edge" "microsoft-edge" "brave" "brave-browser" "safari" "firefox" "chromium" "chromium-browser" "opera")
-    for browser in "${browsers[@]}"; do
-        if [ ! -f /usr/bin/$browser ]; then
-            if [ $browser = $UsBr ]; then
-                echo "$UsBr is not installed"
-                echo
-                echo -e "here's the url:\n\n$(aws-console $2)"
-                exit 1
-            fi
-        elif [ -f /usr/bin/$UsBr ]; then
-            echo "$UsBr is installed">/dev/null
-        else 
-            echo "$UsBr is not installed"
-            echo
-            echo -e "here's the url:\n\n$(aws-console $2)"
-            exit 1
-        fi
-    done
-    echo "Opening $prof aws-console in $UsBr"
-}
+# UsBr=$1
+# check_browsers(){
+#     browsers=("google-chrome" "chrome" "edge" "microsoft-edge" "brave" "brave-browser" "safari" "firefox" "chromium" "chromium-browser" "opera")
+#     for browser in "${browsers[@]}"; do
+#         if [ ! -f /usr/bin/$browser ]; then
+#             if [ $browser = $UsBr ]; then
+#                 echo "$UsBr is not installed"
+#                 echo
+#                 echo -e "here's the url:\n\n$(aws-console $2)"
+#                 exit 1
+#             fi
+#         elif [ -f /usr/bin/$UsBr ]; then
+#             echo "$UsBr is installed">/dev/null
+#         else 
+#             echo "$UsBr is not installed"
+#             echo
+#             echo -e "here's the url:\n\n$(aws-console $2)"
+#             exit 1
+#         fi
+#     done
+#     echo "Opening $prof aws-console in $UsBr"
+# }
 # ---------------------------------------------------------------------------- #
 
 if [ $1 = "edge" ] || [ $1 = "microsoft-edge" ] ; then
-    check_browsers
+    # check_browsers
     microsoft-edge $(aws-console $2) &
 elif [ $1 = "firefox" ]; then
-    check_browsers
+    # check_browsers
     firefox $(aws-console $2) &
     echo done
 elif [ $1 = "safari" ]; then
-    check_browsers
+    # check_browsers
     safari $(aws-console $2) &
 elif [ $1 = "chrome" ] || [ $1 = "google-chrome" ]; then
-    check_browsers
+    # check_browsers
     google-chrome $(aws-console $2) &
 elif [ $1 = "brave" ] || [ $1 = "brave-browser" ]; then
-    check_browsers
+    # check_browsers
     brave-browser $(aws-console $2) &
 # check if only one argument is passed
 elif [ $# -eq 2 ]; then
-    check_browsers
+    # check_browsers
     echo -e "here's the url:\n\n$(aws-console $2)"
 elif [ $# -eq 1 ]; then
-    check_browsers
+    # check_browsers
     echo -e "here's the url:\n\n$(aws-console)"
 else
-    echo "No browser or profile was passed"
+    echo "No browser or profile was passed, opening in firefox"
+    firefox $(aws-console) &
     echo -e "here's the url:\n\n$(aws-console)"
 fi
 # ---------------------------------------------------------------------------- #
