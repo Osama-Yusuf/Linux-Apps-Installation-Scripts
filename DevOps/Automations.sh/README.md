@@ -6,6 +6,7 @@
 - [**Kubernetes CLI auto-completion**](#kubernetes-cli-auto-completion)
 - [**Fav Bash Aliases**](#fav-bash-aliases)
 - [**MyIP**](#myip)
+- [**AWS Console**](#aws-console)
 - [**WIfi Passwords**](#wifi-passwords)
 
 ## You can execute the script directly without downloading it:
@@ -33,12 +34,25 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 
   ### Usage
   ```
-  Usage: ./clean_none.sh [OPTION]
+   ./clean_none.sh [OPTION]
     -l, --last      remove last image created
     -i, --image     remove specific image by id
     -e, --exited    remove all exited containers
     -c, --container remove specific container by id
     -h, --help      display this help and exit
+  ```
+
+- ## AWS Console
+  Opens AWS console in your browser with your credentials.
+
+  ### Install
+  ```
+  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/aws-console.sh)
+  ```
+
+  ### Usage
+  ```
+   ./aws-console.sh [Browser] [Profile]
   ```
 
 - ## Kubernetes CLI auto-completion
