@@ -4,6 +4,7 @@
 
 - [**Docker Images and Containers Cleaner**](#docker-images-and-containers-cleaner)
 - [**Kubernetes CLI auto-completion**](#kubernetes-cli-auto-completion)
+- [**AWS EC2 Status Controller**](#aws-ec2-status-controller)
 - [**Fav Bash Aliases**](#fav-bash-aliases)
 - [**MyIP**](#myip)
 - [**AWS Console**](#aws-console)
@@ -29,12 +30,12 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 
   ### Install
   ```
-  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/clean_docker.sh)
+  curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/clean_docker.sh" -o clean_docker.sh && chmod +x clean_docker.sh
   ```
 
   ### Usage
   ```
-   ./clean_none.sh [OPTION]
+  ./clean_none.sh [OPTION]
     -l, --last      remove last image created
     -i, --image     remove specific image by id
     -e, --exited    remove all exited containers
@@ -42,12 +43,39 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
     -h, --help      display this help and exit
   ```
 
+- ## AWS EC2 Status Controller 
+  This script scans, saves and starts/stops/terminates instances in AWS.
+
+  ### Install
+  ```
+  curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/aws_ec2.sh" -o aws_ec2.sh && chmod +x aws_ec2.sh
+  ```
+
+  ### Usage
+  ```
+  1. bash aws_ec2.sh scan save
+  2. bash aws_ec2.sh check [region]
+  3. bash aws_ec2.sh [start|stop|terminate|ip] [region] [instance_id]
+
+  ./aws_ec2.sh
+          scan                                scans all regions and saves only scan result in $rgs_dir/scan
+          scan save                           scans and saves the instances ids for further use in $rgs_dir
+
+          regions                             lists all saved regions, but you must first scan and save the instances
+          [region]                            print info about instances inside passed region
+
+          [command] [region] [instance_id]    [start|stop|terminate|ip|check] but you must first scan and save the instances
+
+  Eg: ./aws_ec2.sh start us-east-1                         starts all instances in us-east-1
+  Eg: ./aws_ec2.sh start us-east-1 i-050b7d36ad76bddea     starts a specific instance in us-east-1
+  ```
+
 - ## AWS Console
   Opens AWS console in your browser with your credentials.
 
   ### Install
   ```
-  source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/aws-console.sh)
+  curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/Automations.sh/aws-console.sh" -o aws-console.sh && chmod +x aws-console.sh
   ```
 
   ### Usage
