@@ -8,6 +8,8 @@
 - [**Free Download Manager**](#free-download-manager)
 - [**Visual Studio Code**](#visual-studio-code)
 - [**VLC media player**](#vlc-media-player)
+- [**Pomodoro Timer**](#pomodoro-timer)
+- [**Sleek To-do List**](#sleek-to-do-list)
 
 ## You can execute the script directly without downloading it:
 
@@ -52,4 +54,19 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 
 ```
 sudo snap install vlc
+```
+
+### [Pomodoro Timer](https://gnomepomodoro.org/).
+for ubuntu
+```
+sudo apt-get install gnome-shell-pomodoro
+```
+for fedora
+```
+sudo dnf install gnome-pomodoro
+```
+
+### [Sleek To-do List](https://github.com/ransome1/sleek).
+```
+sudo snap install sleek
 ```
