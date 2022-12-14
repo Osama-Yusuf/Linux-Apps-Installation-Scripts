@@ -10,6 +10,7 @@
 - [**VLC media player**](#vlc-media-player)
 - [**Pomodoro Timer**](#pomodoro-timer)
 - [**Sleek To-do List**](#sleek-to-do-list)
+- [**SuperProductivity To-do List**](#superproductivity-to-do-list)
 
 ## You can execute the script directly without downloading it:
 
@@ -56,7 +57,7 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 sudo snap install vlc
 ```
 
-### [Pomodoro Timer](https://gnomepomodoro.org/).
+### [Pomodoro Timer](https://gnomepomodoro.org/)
 for ubuntu
 ```
 sudo apt-get install gnome-shell-pomodoro
@@ -66,7 +67,12 @@ for fedora
 sudo dnf install gnome-pomodoro
 ```
 
-### [Sleek To-do List](https://github.com/ransome1/sleek).
+### [Sleek To-do List](https://github.com/ransome1/sleek)
 ```
 sudo snap install sleek
+```
+
+### [SuperProductivity To-do List](https://github.com/johannesjo/super-productivity/releases)
+```
+sudo snap install superproductivity
 ```
