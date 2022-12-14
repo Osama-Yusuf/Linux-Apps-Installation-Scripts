@@ -68,11 +68,13 @@ sudo dnf install gnome-pomodoro
 ```
 
 ### [Sleek To-do List](https://github.com/ransome1/sleek)
+a simple user friendly Todo-list with priorities, project & tags as filters and due & thresholds as dates  
 ```
 sudo snap install sleek
 ```
 
-### [SuperProductivity To-do List](https://github.com/johannesjo/super-productivity/releases)
+### [SuperProductivity To-do List](https://github.com/johannesjo/super-productivity)
+This is a Todo-list with a time tracker to each task with also priorities, project & tags as filters and due & thresholds as dates and much more features 
 ```
 sudo snap install superproductivity
 ```
