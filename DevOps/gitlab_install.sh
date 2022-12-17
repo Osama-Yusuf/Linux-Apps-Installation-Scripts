@@ -17,10 +17,10 @@ RH(){
     sudo firewall-cmd --permanent --add-service=https
     sudo systemctl reload firewalld
 
-    # Next, install Postfix (or Sendmail) to send notification emails
-    sudo yum install postfix
-    sudo systemctl enable postfix
-    sudo systemctl start postfix
+    # --- Next, install Postfix (or Sendmail) to send notification emails
+    # sudo yum install postfix
+    # sudo systemctl enable postfix
+    # sudo systemctl start postfix
 
     # 2. Add the GitLab package repository and install the package
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
@@ -45,8 +45,8 @@ UB(){
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
 
-    # Next, install Postfix (or Sendmail) to send notification emails
-    sudo apt-get install -y postfix
+    # --- Next, install Postfix (or Sendmail) to send notification emails
+    # sudo apt-get install -y postfix
 
     # 2. Add the GitLab package repository and install the package
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
@@ -54,7 +54,7 @@ UB(){
     sudo apt update -y && sudo apt upgrade -y
 
     # Next, install the GitLab package.
-    sudo EXTERNAL_URL="http://$EXTERNAL_URL:80" yum install -y gitlab-ee
+    sudo EXTERNAL_URL="http://$EXTERNAL_URL:80" apt install -y gitlab-ee
 
     gitlab-ctl restart
     gitlab-ctl reconfigure
@@ -67,9 +67,12 @@ UB(){
     sudo apt-get update
     sudo apt-get install gitlab-runner
 }
-
-# username: root
-# password: cat /etc/gitlab/initial_root_password
+username="User: root"
+password=$(sudo cat /etc/gitlab/initial_root_password | grep Password:)
+echo
+echo "open http://$EXTERNAL_URL in your browser and login with the following credentials:"
+echo -e "\n$username\n$password"
+sleep 5
 
 if [ -f /etc/debian_version ]; then
     echo "Distro is Ubuntu or Debian"
@@ -90,6 +93,10 @@ sudo gitlab-runner register -n \
   --docker-volumes /var/run/docker.sock:/var/run/docker.sock
 
 # sudo gitlab-runner register
+
+echo """gitlab registry by default is disabled, to enable it do the following: 
+1. edit with sudo vim /etc/gitlab/gitlab.rb and search for 'registry_external_url' and uncomment it
+2. sudo gitlab-ctl reconfigure"""
 
 # ---- If you are behind a proxy, add an environment variable and then run the registration command:
 # export HTTP_PROXY=http://yourproxyurl:3128
