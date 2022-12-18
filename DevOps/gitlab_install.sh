@@ -67,12 +67,6 @@ UB(){
     sudo apt-get update
     sudo apt-get install gitlab-runner
 }
-username="User: root"
-password=$(sudo cat /etc/gitlab/initial_root_password | grep Password:)
-echo
-echo "open http://$EXTERNAL_URL in your browser and login with the following credentials:"
-echo -e "\n$username\n$password"
-sleep 5
 
 if [ -f /etc/debian_version ]; then
     echo "Distro is Ubuntu or Debian"
@@ -81,6 +75,12 @@ elif [ -f /etc/redhat-release ]; then
     echo "Distro is CentOS or RHEL"
     RH
 fi
+
+username="User: root"
+password=$(sudo cat /etc/gitlab/initial_root_password | grep Password:)
+echo -e "\nopen http://$EXTERNAL_URL in your browser and login with the following credentials:"
+echo -e "\n$username\n$password"
+sleep 5
 
 read -p "Enter Registration Token from GitLab server(CI/CD settings): " REG_TOKEN
 
