@@ -1,15 +1,13 @@
-# 1- go to browser and to this link: https://extensions.gnome.org/
-# 2- add extension 
+# 1- Install this extension: 
+    # https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep
 
-if [ -f /etc/debian_version ]; then
-    echo "Distro is Ubuntu or Debian"
-    PM="apt"
-elif [ -f /etc/redhat-release ]; then
-    echo "Distro is CentOS or RHEL"
-    PM="yum"
-fi
+# 2- open termainal and execute the following command:
+     sudo apt install chrome-gnome-shell
 
-# 3- open termainal and run this command
-sudo $PM install chrome-gnome-shell
+# 4- after that open this link: https://extensions.gnome.org/extension/779/clipboard-indicator/
+# 5- and toggle on the Clipboard Indicator
 
-# 4- open chrome and enter the previous link and it's all done
+# if there's error try the following:
+# - restart the browser
+# - restarting your machine
+# - retry on other browsers (eg. chrome, edge, firefox, & brave)
