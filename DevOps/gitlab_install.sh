@@ -105,13 +105,3 @@ echo """gitlab registry by default is disabled, to enable it do the following:
 
 # ---- To get runner configs
 # code /etc/gitlab-runner/config.toml
-
-# ---- To install k8s agent on git lab server
-# helm repo add gitlab https://charts.gitlab.io
-# helm repo update
-# helm upgrade --install osama gitlab/gitlab-agent \
-#     --namespace gitlab-agent \
-#     --create-namespace \
-#     --set image.tag=v15.5.1 \
-#     --set config.token=ZULJCnNgBoDC9wyn85cwe-jdW332aFYnyD7NtsTYQsrwWQeMoA \
-#     --set config.kasAddress=ws://46.101.125.14/-/kubernetes-agent/
