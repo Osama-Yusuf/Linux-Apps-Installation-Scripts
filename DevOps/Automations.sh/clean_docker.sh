@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Remove all none images & none containers
-# Usage: ./clean_none.sh [OPTION]
-#   -l, --last      remove last image created
-#   -i, --image     remove specific image by id
-#   -e, --exited    remove all exited containers
-#   -c, --container remove specific container by id
-#   -h, --help      display this help and exit
-
 images=$(docker images | grep '^<none>' | awk '{print $3}')
 conts=$(docker ps -a | grep '^<none>' | awk '{print $1}')
 
@@ -24,12 +16,23 @@ else
 fi
 
 # --------------------------------[ARGS]-------------------------------- #
+# array of arguments
+args=("$@")
 
-if [ $# -eq 0 ]; then
+# ---------------------- Displays help and exit ---------------------- #
+if [ -z $1 ] || [ $1 == '-h' ] || [ $1 == '--help' ]; then
     echo
-    # echo "No argument supplied"
+    echo "Removes none images and none containers"
+    echo "Usage: clean_none.sh [OPTION]"
+    echo
+    echo "  -l, --last      remove last image created"
+    echo "  -e, --exited    remove all exited containers"
+    echo "  -i, --image     remove specific image/s by id"
+    echo "  -c, --container remove specific container/s by id"
+    echo "  -h, --help      display this help and exit"
     exit 1
 
+# ---------------------- Deletes last image created ---------------------- #
 elif [ $1 == '-l' ] || [ $1 == '--last' ]; then
     # Cecking if there's any images exists
     if [[ "$(docker images -q)" == "" ]]; then
@@ -65,17 +68,7 @@ elif [ $1 == '-l' ] || [ $1 == '--last' ]; then
         fi
     fi
 
-elif [ $1 == '-i' ] || [ $1 == '--image' ]; then
-    echo
-    echo "Deleting image $2"
-    image=$2
-    if [ -n "$image" ]; then
-        docker rmi -f $image
-    else
-        echo
-        echo "No image supplied"
-    fi
-
+# ---------------------- Deletes all exited containers ---------------------- #
 elif [ $1 == '-e' ] || [ $1 == '--exited' ]; then
     echo
     echo "Deleting all exited containers"
@@ -87,29 +80,29 @@ elif [ $1 == '-e' ] || [ $1 == '--exited' ]; then
         echo "No exited containers"
     fi
 
-elif [ $1 == '-c' ] || [ $1 == '--container' ]; then
+# ---------------------- Deletes specific image/s by id ---------------------- #
+elif [ $1 == '-i' ] || [ $1 == '--image' ]; then
+    # variable that stores all arguments except the first one
+    images=${args[@]:1}
     echo
-    echo "Deleting container $2"
-    cont=$2
-    if [ -n "$cont" ]; then
-        docker rm -f $cont
+    echo "Deleting image/s ${args[@]:1}"
+    if [ -n "$images" ]; then
+        docker rmi -f $images
+    else
+        echo
+        echo "No images was given"
+    fi
+
+# -------------------- Deletes specific container/s by id -------------------- #
+elif [ $1 == '-c' ] || [ $1 == '--container' ]; then
+    # variable that stores all arguments except the first one
+    conts=${args[@]:1}
+    echo
+    echo "Deleting container $conts"
+    if [ -n "$conts" ]; then
+        docker rm -f $conts
     else
         echo
         echo "No container supplied"
     fi
-    
-elif [ $1 == '-h' ] || [ $1 == '--help' ]; then
-    echo
-    echo "Usage: clean_none.sh [OPTION]"
-    echo "Remove none images and none containers"
-    echo
-    echo "  -l, --last      remove last image created"
-    echo "  -i, --image     remove specific image by id"
-    echo "  -e, --exited    remove all exited containers"
-    echo "  -c, --container remove specific container by id"
-    echo "  -h, --help      display this help and exit"
-    echo
-else
-    echo
-    echo "Invalid argument"
 fi

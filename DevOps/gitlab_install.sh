@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 read -p "Enter the external URL for GitLab: " EXTERNAL_URL
 
 RH(){
