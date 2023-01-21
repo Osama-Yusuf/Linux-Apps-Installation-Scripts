@@ -8,6 +8,9 @@
 - [**Free Download Manager**](#free-download-manager)
 - [**Visual Studio Code**](#visual-studio-code)
 - [**VLC media player**](#vlc-media-player)
+- [**Pomodoro Timer**](#pomodoro-timer)
+- [**Sleek To-do List**](#sleek-to-do-list)
+- [**SuperProductivity To-do List**](#superproductivity-to-do-list)
 
 ## You can execute the script directly without downloading it:
 
@@ -52,4 +55,26 @@ source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Instal
 
 ```
 sudo snap install vlc
+```
+
+### [Pomodoro Timer](https://gnomepomodoro.org/)
+for ubuntu
+```
+sudo apt-get install gnome-shell-pomodoro
+```
+for fedora
+```
+sudo dnf install gnome-pomodoro
+```
+
+### [Sleek To-do List](https://github.com/ransome1/sleek)
+a simple user friendly Todo-list with priorities, project & tags as filters and due & thresholds as dates  
+```
+sudo snap install sleek
+```
+
+### [SuperProductivity To-do List](https://github.com/johannesjo/super-productivity)
+This is a Todo-list with a time tracker to each task with also priorities, project & tags as filters and due & thresholds as dates and much more features 
+```
+sudo snap install superproductivity
 ```

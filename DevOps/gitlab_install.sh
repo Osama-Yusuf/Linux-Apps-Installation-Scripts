@@ -17,10 +17,10 @@ RH(){
     sudo firewall-cmd --permanent --add-service=https
     sudo systemctl reload firewalld
 
-    # Next, install Postfix (or Sendmail) to send notification emails
-    sudo yum install postfix
-    sudo systemctl enable postfix
-    sudo systemctl start postfix
+    # --- Next, install Postfix (or Sendmail) to send notification emails
+    # sudo yum install postfix
+    # sudo systemctl enable postfix
+    # sudo systemctl start postfix
 
     # 2. Add the GitLab package repository and install the package
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash
@@ -45,8 +45,8 @@ UB(){
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
 
-    # Next, install Postfix (or Sendmail) to send notification emails
-    sudo apt-get install -y postfix
+    # --- Next, install Postfix (or Sendmail) to send notification emails
+    # sudo apt-get install -y postfix
 
     # 2. Add the GitLab package repository and install the package
     curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
@@ -54,7 +54,7 @@ UB(){
     sudo apt update -y && sudo apt upgrade -y
 
     # Next, install the GitLab package.
-    sudo EXTERNAL_URL="http://$EXTERNAL_URL:80" yum install -y gitlab-ee
+    sudo EXTERNAL_URL="http://$EXTERNAL_URL:80" apt install -y gitlab-ee
 
     gitlab-ctl restart
     gitlab-ctl reconfigure
@@ -68,9 +68,6 @@ UB(){
     sudo apt-get install gitlab-runner
 }
 
-# username: root
-# password: cat /etc/gitlab/initial_root_password
-
 if [ -f /etc/debian_version ]; then
     echo "Distro is Ubuntu or Debian"
     UB
@@ -78,6 +75,12 @@ elif [ -f /etc/redhat-release ]; then
     echo "Distro is CentOS or RHEL"
     RH
 fi
+
+username="User: root"
+password=$(sudo cat /etc/gitlab/initial_root_password | grep Password:)
+echo -e "\nopen http://$EXTERNAL_URL in your browser and login with the following credentials:"
+echo -e "\n$username\n$password"
+sleep 5
 
 read -p "Enter Registration Token from GitLab server(CI/CD settings): " REG_TOKEN
 
@@ -91,6 +94,10 @@ sudo gitlab-runner register -n \
 
 # sudo gitlab-runner register
 
+echo """gitlab registry by default is disabled, to enable it do the following: 
+1. edit with sudo vim /etc/gitlab/gitlab.rb and search for 'registry_external_url' and uncomment it
+2. sudo gitlab-ctl reconfigure"""
+
 # ---- If you are behind a proxy, add an environment variable and then run the registration command:
 # export HTTP_PROXY=http://yourproxyurl:3128
 # export HTTPS_PROXY=http://yourproxyurl:3128
@@ -98,13 +105,3 @@ sudo gitlab-runner register -n \
 
 # ---- To get runner configs
 # code /etc/gitlab-runner/config.toml
-
-# ---- To install k8s agent on git lab server
-# helm repo add gitlab https://charts.gitlab.io
-# helm repo update
-# helm upgrade --install osama gitlab/gitlab-agent \
-#     --namespace gitlab-agent \
-#     --create-namespace \
-#     --set image.tag=v15.5.1 \
-#     --set config.token=ZULJCnNgBoDC9wyn85cwe-jdW332aFYnyD7NtsTYQsrwWQeMoA \
-#     --set config.kasAddress=ws://46.101.125.14/-/kubernetes-agent/

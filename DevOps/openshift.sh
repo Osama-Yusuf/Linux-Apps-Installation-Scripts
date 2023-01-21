@@ -38,3 +38,6 @@ elif [ -f /etc/redhat-release ]; then
     echo "Distro is CentOS or RHEL"
     RH
 fi
+cd .. && rm -fr crc-linux-*
+crc setup
+
