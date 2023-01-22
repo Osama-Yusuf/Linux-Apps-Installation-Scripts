@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # To install Flatpak on Ubuntu 18.10 (Cosmic Cuttlefish) or later, simply run:
 sudo apt install flatpak
 # The Flatpak plugin for the Software app makes it possible to install apps without needing the command line. To install, run:
