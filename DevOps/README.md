@@ -32,6 +32,17 @@ curl "https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scri
 ```
 source <(curl -s https://raw.githubusercontent.com/Osama-Yusuf/Linux-Apps-Installation-Scripts/main/DevOps/docker.sh)
 ```
+### for auto completion:
+<br/>
+
+##### On CentOS/RedHat:
+```
+yum install bash-completion -y
+```
+##### On Ubuntu/Debian:
+```
+apt-get install bash-completion -y
+```
 
 ## GitLab Installation
 
