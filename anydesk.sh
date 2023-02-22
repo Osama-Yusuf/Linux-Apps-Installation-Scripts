@@ -14,7 +14,7 @@ RH(){
 
 name=AnyDesk CentOS - stable
 
-baseurl=http://rpm.anydesk.com/centos/$basearch/
+baseurl="http://rpm.anydesk.com/centos/$basearch/"
 
 gpgcheck=1
 
